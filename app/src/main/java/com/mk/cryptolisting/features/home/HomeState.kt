@@ -1,4 +1,4 @@
-package com.mk.cryptolisting.home
+package com.mk.cryptolisting.features.home
 
 import com.mk.cryptolisting.domain.models.Coin
 

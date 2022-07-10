@@ -10,7 +10,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.mk.cryptolisting.home.HomeScreen
+import com.mk.cryptolisting.features.home.HomeScreen
 import com.mk.cryptolisting.ui.theme.CryptoListingTheme
 import dagger.hilt.android.AndroidEntryPoint
 

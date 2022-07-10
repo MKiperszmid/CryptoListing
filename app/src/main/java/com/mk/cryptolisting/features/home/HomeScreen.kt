@@ -1,4 +1,4 @@
-package com.mk.cryptolisting.home
+package com.mk.cryptolisting.features.home
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -18,7 +18,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.mk.cryptolisting.domain.models.Coin
-import com.mk.cryptolisting.home.components.CoinItem
+import com.mk.cryptolisting.features.home.components.CoinItem
 
 @Composable
 fun HomeScreen(

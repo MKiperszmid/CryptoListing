@@ -9,6 +9,7 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
@@ -34,7 +35,8 @@ fun HomeScreen(
     } else if (state.coins.isNotEmpty()) {
         LazyColumn(modifier = Modifier
             .fillMaxSize()
-            .padding(8.dp),
+            .padding(8.dp)
+            .testTag("coin_list"),
             verticalArrangement = Arrangement.spacedBy(8.dp)) {
             item {
                 Text(text = stringResource(R.string.top_coins),

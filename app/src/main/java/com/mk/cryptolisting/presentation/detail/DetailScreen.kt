@@ -6,6 +6,7 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -36,7 +37,8 @@ fun DetailScreen(
     } else if (state.coinDetails.isNotEmpty()) {
         Column(modifier = Modifier
             .fillMaxSize()
-            .padding(8.dp)) {
+            .padding(8.dp)
+            .testTag("coin_detail")) {
             Text(text = stringResource(R.string.price_chart),
                 style = MaterialTheme.typography.body1,
                 fontWeight = FontWeight.Black,
@@ -72,6 +74,9 @@ private fun LineChartView(details: List<CoinDetail>, modifier: Modifier = Modifi
 }
 
 private fun detailsToPoints(details: List<CoinDetail>): List<LineChartData.Point> {
+    if (details.size <= 2) {
+        return details.map { detailToPoint(it) }
+    }
     return details.mapIndexedNotNull { index, coinDetail ->
         if (index % 2 == 0) {
             detailToPoint(coinDetail)

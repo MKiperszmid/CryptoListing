@@ -10,14 +10,14 @@ import com.mk.cryptolisting.domain.models.CoinDetail
 
 class CoinRepository(
     private val api: CoinApi,
-    private val dao: CoinDao
+    private val dao: CoinDao,
 ) {
     suspend fun getCoins(): Result<List<Coin>> {
         return getFromApi()
     }
 
     suspend fun getAllCoins(
-        fetchFromRemote: Boolean = false
+        fetchFromRemote: Boolean = false,
     ): Result<List<Coin>> {
         val localCoins = getLocally()
         val loadFromCache = localCoins.isNotEmpty() && !fetchFromRemote
@@ -57,7 +57,7 @@ class CoinRepository(
     suspend fun getCoinDetail(coinId: String): Result<List<CoinDetail>> {
         return try {
             val response = api.getCoinDetail(coinId).data.data
-            Result.success(response.map { it.toDomain() } )
+            Result.success(response.map { it.toDomain() })
         } catch (e: Exception) {
             Result.failure(e)
         }

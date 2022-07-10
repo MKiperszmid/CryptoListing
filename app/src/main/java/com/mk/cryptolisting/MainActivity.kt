@@ -12,9 +12,9 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import com.mk.cryptolisting.navigation.Route
 import com.mk.cryptolisting.presentation.detail.DetailScreen
 import com.mk.cryptolisting.presentation.home.HomeScreen
-import com.mk.cryptolisting.navigation.Route
 import com.mk.cryptolisting.ui.theme.CryptoListingTheme
 import dagger.hilt.android.AndroidEntryPoint
 

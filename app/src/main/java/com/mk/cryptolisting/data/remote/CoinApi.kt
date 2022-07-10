@@ -16,12 +16,12 @@ interface CoinApi {
 
     @GET("data/top/mktcapfull?limit=$limit&tsym=USD")
     suspend fun getCoins(
-        @Query("api_key") apiKey: String = API_KEY
+        @Query("api_key") apiKey: String = API_KEY,
     ): CoinListResponse
 
     @GET("/data/v2/histoday?tsym=USD&limit=10")
     suspend fun getCoinDetail(
         @Query("fsym") coinId: String,
-        @Query("api_key") apiKey: String = API_KEY
+        @Query("api_key") apiKey: String = API_KEY,
     ): CoinDetailResponse
 }

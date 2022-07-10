@@ -10,5 +10,5 @@ data class CoinEntity(
     val name: String,
     val abbreviation: String,
     val price: Double,
-    val icon: String
+    val icon: String,
 )

@@ -14,7 +14,7 @@ import com.mk.cryptolisting.R
 @Composable
 fun ErrorScreen(
     onClick: () -> Unit,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     Column(modifier = modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,

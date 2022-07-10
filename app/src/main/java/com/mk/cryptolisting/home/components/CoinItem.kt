@@ -33,7 +33,7 @@ fun CoinItem(
         Row(verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceBetween, modifier = Modifier.padding(6.dp)) {
             CoinVisuals(coin = coin)
-            Text(text = "$${getCorrectDollarAmount(coin.price)}",
+            Text(text = "$${coin.price}",
                 style = MaterialTheme.typography.subtitle2,
                 color = MaterialTheme.colors.onBackground)
         }
@@ -60,11 +60,6 @@ fun CoinVisuals(coin: Coin) {
                 modifier = Modifier.alpha(0.7f))
         }
     }
-}
-
-private fun getCorrectDollarAmount(price: Double): String {
-    val format = DecimalFormat("#.##")
-    return format.format(price).toString()
 }
 
 @Composable

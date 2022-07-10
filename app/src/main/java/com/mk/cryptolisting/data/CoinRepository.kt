@@ -10,7 +10,7 @@ class CoinRepository(
     suspend fun getCoins(): Result<List<Coin>> {
         return try {
             val response = api.getCoins()
-            Result.success(response.map { it.toDomain() })
+            Result.success(response.data.map { it.toDomain() })
         } catch (e: Exception) {
             Result.failure(e)
         }

@@ -1,4 +1,4 @@
-package com.mk.cryptolisting.features.home.components
+package com.mk.cryptolisting.presentation.home.components
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape

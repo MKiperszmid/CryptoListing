@@ -1,4 +1,4 @@
-package com.mk.cryptolisting.features.home
+package com.mk.cryptolisting.presentation.home
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf

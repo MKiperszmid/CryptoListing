@@ -84,9 +84,6 @@ dependencies {
     //Coil
     implementation "io.coil-kt:coil-compose:2.1.0"
 
-    // Palette API
-    implementation "androidx.palette:palette-ktx:1.0.0"
-
     //Testing
     testImplementation 'junit:junit:4.13.2'
     testImplementation 'com.google.truth:truth:1.1.3'

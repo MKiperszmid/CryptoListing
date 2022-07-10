@@ -1,4 +1,4 @@
-package com.mk.cryptolisting.features.detail
+package com.mk.cryptolisting.presentation.detail
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -14,16 +14,15 @@ fun DetailScreen(
     viewModel: DetailViewModel = hiltViewModel(),
 ) {
     val state = viewModel.state
-    
+
     if (state.isLoading) {
         Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
             CircularProgressIndicator()
         }
-    }
-    else if (state.coinDetails.isNotEmpty()) {
+    } else if (state.coinDetails.isNotEmpty()) {
         Text(text = "Amount of Info: ${state.coinDetails.size}")
     } else {
         Text(text = "Error getting info")
     }
-    
+
 }

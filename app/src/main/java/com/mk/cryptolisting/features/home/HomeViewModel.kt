@@ -25,7 +25,7 @@ class HomeViewModel @Inject constructor(
     private fun getCoins() {
         state = state.copy(isLoading = true)
         viewModelScope.launch {
-            repository.getCoins()
+            repository.getAllCoins()
                 .onSuccess {
                     state = state.copy(
                         isLoading = false,

@@ -14,7 +14,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.mk.cryptolisting.domain.models.Coin
-import java.text.DecimalFormat
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
@@ -54,7 +53,7 @@ fun CoinVisuals(coin: Coin) {
                 style = MaterialTheme.typography.subtitle1,
                 color = MaterialTheme.colors.onBackground)
             Spacer(modifier = Modifier.padding(2.dp))
-            Text(text = coin.id,
+            Text(text = coin.abbreviation,
                 style = MaterialTheme.typography.subtitle2,
                 color = MaterialTheme.colors.onBackground,
                 modifier = Modifier.alpha(0.7f))

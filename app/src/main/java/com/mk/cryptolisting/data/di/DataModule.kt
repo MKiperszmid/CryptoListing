@@ -1,5 +1,9 @@
-package com.mk.cryptolisting.data.remote.di
+package com.mk.cryptolisting.data.di
 
+import android.app.Application
+import androidx.room.Room
+import com.mk.cryptolisting.data.CoinRepository
+import com.mk.cryptolisting.data.local.CoinDatabase
 import com.mk.cryptolisting.data.remote.CoinApi
 import dagger.Module
 import dagger.Provides
@@ -14,7 +18,7 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object ApiModule {
+object DataModule {
 
     @Singleton
     @Provides
@@ -30,6 +34,18 @@ object ApiModule {
         return Retrofit.Builder().baseUrl(CoinApi.BASE_URL)
             .addConverterFactory(MoshiConverterFactory.create())
             .client(okHttpClient).build().create()
+    }
+
+    @Singleton
+    @Provides
+    fun provideCoinDatabase(application: Application): CoinDatabase {
+        return Room.databaseBuilder(application, CoinDatabase::class.java, "coin_db").build()
+    }
+
+    @Provides
+    @Singleton
+    fun provideRepository(api: CoinApi, database: CoinDatabase): CoinRepository {
+        return CoinRepository(api = api, dao = database.dao)
     }
 
 }

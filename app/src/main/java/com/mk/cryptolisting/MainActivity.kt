@@ -31,7 +31,7 @@ class MainActivity : ComponentActivity() {
                         composable(Route.HOME) {
                             HomeScreen(
                                 onCoinClick = {
-                                    navigationController.navigate(Route.DETAIL + "/${it.id}")
+                                    navigationController.navigate(Route.DETAIL + "/${it.abbreviation}")
                                 }
                             )
                         }

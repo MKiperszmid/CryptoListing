@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">CryptoListing</string>
+    <string name="error_internet_connection">Oops. Looks like your internet connection is down</string>
+    <string name="try_again">Try Again</string>
+    <string name="top_coins">Top Coins</string>
+    <string name="coin_icon">coin icon</string>
+    <string name="price_chart">Price Chart</string>
 </resources>

@@ -10,9 +10,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
+import com.mk.cryptolisting.R
 import com.mk.cryptolisting.domain.models.Coin
 
 @OptIn(ExperimentalMaterialApi::class)
@@ -43,7 +45,7 @@ fun CoinItem(
 fun CoinVisuals(coin: Coin) {
     Row(verticalAlignment = Alignment.CenterVertically) {
         AsyncImage(model = coin.icon,
-            contentDescription = "coin icon",
+            contentDescription = stringResource(R.string.coin_icon),
             modifier = Modifier
                 .size(75.dp)
                 .padding(6.dp))

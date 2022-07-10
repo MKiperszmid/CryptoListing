@@ -12,11 +12,13 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.mk.cryptolisting.R
 import com.mk.cryptolisting.components.ErrorScreen
 import com.mk.cryptolisting.components.Loader
 import com.mk.cryptolisting.domain.models.Coin
@@ -38,7 +40,7 @@ fun HomeScreen(
             .padding(8.dp),
             verticalArrangement = Arrangement.spacedBy(8.dp)) {
             item {
-                Text(text = "Top Coins",
+                Text(text = stringResource(R.string.top_coins),
                     style = MaterialTheme.typography.body1,
                     fontWeight = FontWeight.Black,
                     fontSize = 20.sp)

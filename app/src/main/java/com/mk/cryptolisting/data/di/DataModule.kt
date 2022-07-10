@@ -2,9 +2,10 @@ package com.mk.cryptolisting.data.di
 
 import android.app.Application
 import androidx.room.Room
-import com.mk.cryptolisting.data.CoinRepository
+import com.mk.cryptolisting.data.CoinRepositoryImpl
 import com.mk.cryptolisting.data.local.CoinDatabase
 import com.mk.cryptolisting.data.remote.CoinApi
+import com.mk.cryptolisting.domain.repository.CoinRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -45,7 +46,7 @@ object DataModule {
     @Provides
     @Singleton
     fun provideRepository(api: CoinApi, database: CoinDatabase): CoinRepository {
-        return CoinRepository(api = api, dao = database.dao)
+        return CoinRepositoryImpl(api = api, dao = database.dao)
     }
 
 }

@@ -1,5 +1,6 @@
 package com.mk.cryptolisting.data.remote
 
+import com.mk.cryptolisting.data.remote.dto.CoinDetailResponse
 import com.mk.cryptolisting.data.remote.dto.CoinListResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -17,4 +18,10 @@ interface CoinApi {
     suspend fun getCoins(
         @Query("api_key") apiKey: String = API_KEY
     ): CoinListResponse
+
+    @GET("/data/v2/histoday?tsym=USD&limit=10")
+    suspend fun getCoinDetail(
+        @Query("fsym") coinId: String,
+        @Query("api_key") apiKey: String = API_KEY
+    ): CoinDetailResponse
 }

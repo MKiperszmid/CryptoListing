@@ -32,8 +32,7 @@ fun HomeScreen(
             CircularProgressIndicator()
         }
     }
-
-    if (state.coins.isNotEmpty()) {
+    else if (state.coins.isNotEmpty()) {
         LazyColumn(modifier = Modifier
             .fillMaxSize()
             .padding(8.dp),
@@ -48,6 +47,8 @@ fun HomeScreen(
                 CoinItem(coin = coin, onClick = onCoinClick)
             }
         }
+    } else {
+        Text(text = "Error getting list")
     }
 }
 

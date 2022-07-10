@@ -20,10 +20,6 @@ class HomeViewModel @Inject constructor(
 
     init {
         getCoins()
-        viewModelScope.launch {
-            val test = repository.getCoins()
-            println(test)
-        }
     }
 
     private fun getCoins() {

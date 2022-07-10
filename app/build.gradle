@@ -84,6 +84,9 @@ dependencies {
     //Coil
     implementation "io.coil-kt:coil-compose:2.1.0"
 
+    //Chart
+    implementation('io.github.bytebeats:compose-charts:0.1.2')
+
     //Testing
     testImplementation 'junit:junit:4.13.2'
     testImplementation 'com.google.truth:truth:1.1.3'

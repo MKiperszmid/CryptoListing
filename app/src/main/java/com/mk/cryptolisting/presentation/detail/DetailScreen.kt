@@ -12,6 +12,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.mk.cryptolisting.components.ErrorScreen
+import com.mk.cryptolisting.components.Loader
 import com.mk.cryptolisting.domain.models.CoinDetail
 import me.bytebeats.views.charts.line.LineChart
 import me.bytebeats.views.charts.line.LineChartData
@@ -30,9 +32,7 @@ fun DetailScreen(
     val state = viewModel.state
 
     if (state.isLoading) {
-        Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-            CircularProgressIndicator()
-        }
+        Loader()
     } else if (state.coinDetails.isNotEmpty()) {
         Column(modifier = Modifier
             .fillMaxSize()
@@ -48,7 +48,7 @@ fun DetailScreen(
                     .padding(30.dp))
         }
     } else {
-        Text(text = "Error getting info")
+        ErrorScreen(onClick = { viewModel.getCoinDetail() })
     }
 }
 
@@ -60,7 +60,8 @@ private fun LineChartView(details: List<CoinDetail>, modifier: Modifier = Modifi
         ),
         modifier = Modifier
             .fillMaxWidth()
-            .height(250.dp).then(modifier),
+            .height(250.dp)
+            .then(modifier),
         animation = simpleChartAnimation(),
         pointDrawer = FilledCircularPointDrawer(),
         lineDrawer = SolidLineDrawer(),

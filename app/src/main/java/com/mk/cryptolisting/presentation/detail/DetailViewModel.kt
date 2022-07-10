@@ -20,16 +20,18 @@ class DetailViewModel @Inject constructor(
         private set
 
     init {
-        val coinId = savedStateHandle.get<String>("coinId") ?: "BTC"
-        getCoinDetail(coinId)
+        state = state.copy(
+            coinId = savedStateHandle.get<String>("coinId") ?: "BTC"
+        )
+        getCoinDetail()
     }
 
-    private fun getCoinDetail(coinId: String) {
+    fun getCoinDetail() {
         state = state.copy(
             isLoading = true
         )
         viewModelScope.launch {
-            repository.getCoinDetail(coinId).onSuccess {
+            repository.getCoinDetail(state.coinId).onSuccess {
                 state = state.copy(
                     isLoading = false,
                     coinDetails = it

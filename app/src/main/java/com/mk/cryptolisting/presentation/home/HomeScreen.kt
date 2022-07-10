@@ -17,22 +17,22 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.mk.cryptolisting.components.ErrorScreen
+import com.mk.cryptolisting.components.Loader
 import com.mk.cryptolisting.domain.models.Coin
 import com.mk.cryptolisting.presentation.home.components.CoinItem
 
 @Composable
 fun HomeScreen(
     onCoinClick: (Coin) -> Unit,
-    viewmodel: HomeViewModel = hiltViewModel()) {
+    viewmodel: HomeViewModel = hiltViewModel(),
+) {
 
     val state = viewmodel.state
 
     if (state.isLoading) {
-        Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-            CircularProgressIndicator()
-        }
-    }
-    else if (state.coins.isNotEmpty()) {
+        Loader()
+    } else if (state.coins.isNotEmpty()) {
         LazyColumn(modifier = Modifier
             .fillMaxSize()
             .padding(8.dp),
@@ -48,7 +48,7 @@ fun HomeScreen(
             }
         }
     } else {
-        Text(text = "Error getting list")
+        ErrorScreen(onClick = { viewmodel.getCoins(true) })
     }
 }
 
